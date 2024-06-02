@@ -17,10 +17,18 @@ function(event) {
 });
 
 function addTask(task) {
-    const listItem = document.createElement('li')
+    const listItem = document.createElement('li');
+    const taskText = document.createElement('span');
     listItem.textContent = task;
-
     todoList.appendChild(listItem);
 
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    listItem.appendChild(checkBox);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    listItem.appendChild(deleteButton);
+
+    todoList.appendChild(listItem);
 }
