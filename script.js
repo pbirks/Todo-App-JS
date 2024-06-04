@@ -17,18 +17,31 @@ function(event) {
 });
 
 function addTask(task) {
-    const listItem = document.createElement('li');
-    const taskText = document.createElement('span');
-    listItem.textContent = task;
-    todoList.appendChild(listItem);
+  const listItem = document.createElement('li');
+  const taskText = document.createElement('span');
+  taskText.textContent = task;
+  listItem.appendChild(taskText);
 
-    const checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
-    listItem.appendChild(checkBox);
+  const checkBox = document.createElement('input');
+  checkBox.setAttribute('type', 'checkbox');
+  listItem.appendChild(checkBox);
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    listItem.appendChild(deleteButton);
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  listItem.appendChild(deleteButton);
 
-    todoList.appendChild(listItem);
+  todoList.appendChild(listItem);
+
+  
+  checkBox.addEventListener('change', function() {
+  if (this.checked) {
+      taskText.style.textDecoration = 'line-through';
+  } else {
+      taskText.style.textDecoration = 'none';
+  }
+  });
+
 }
+
+
+
